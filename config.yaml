@@ -1,0 +1,13 @@
+compute:
+  train:
+    cpus: 1                       # Number of CPUs
+    gpus: 4                       # Number of GPUs
+    instance: g4dn.xlarge           # AWS instance type
+    memory: null                  # RAM memory
+    use_spot: false               # If we should use spot instances
+    framework: "lightning"        # Which framework to use
+  actions:
+    on_image_build:
+    - pip install -r requirements.txt
+    on_before_training_starts:
+    - python setup.py install
